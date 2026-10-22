@@ -1,0 +1,35 @@
+# Cloudflare Pages Configuration for Norbu Buddhist Handicraft
+# See: https://developers.cloudflare.com/pages/functions/
+
+name = "norbu-buddhist-handicraft"
+compatibility_date = "2026-10-15"
+compatibility_flags = ["nodejs_compat"]
+
+# Build configuration
+[build]
+command = "npm run build"
+destination = "dist"
+
+# Environment variables (set in Cloudflare Dashboard)
+# TURNSTILE_SECRET_KEY = "your-turnstile-secret-key"
+# SUPABASE_SERVICE_ROLE_KEY = "your-service-role-key"
+# VITE_SUPABASE_URL = "https://your-project.supabase.co"
+# VITE_SUPABASE_ANON_KEY = "your-anon-key"
+# VITE_TURNSTILE_SITE_KEY = "your-turnstile-site-key"
+
+# SPA fallback for client-side routing
+# Cloudflare Pages automatically handles this for frameworks, but explicit config:
+[[redirects]]
+  source = "/*"
+  destination = "/index.html"
+  status = 200
+
+# Functions configuration
+[functions]
+# Node.js compatibility for Supabase client
+node_compat = true
+
+# KV namespace for rate limiting (optional, for production)
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT_KV"
+# id = "your-kv-namespace-id"

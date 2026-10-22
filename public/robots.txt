@@ -1,0 +1,12 @@
+# Norbu Buddhist Handicraft - Robots.txt
+User-agent: *
+Allow: /
+
+# Disallow admin routes
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://norbu.example.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 10
